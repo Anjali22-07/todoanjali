@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title>TO-DO LIST</title>
+    </head>
+    <body>
+        <style>
+            *{ 
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                font-family:Verdana;
+                background-color:lightsalmon;
+            }
+            body{
+                display:flex;
+                justify-content:center;
+                align-items:top;
+                min-height:50%;
+            }
+            .tobox
+            {
+                position:relative;
+                width:100%;
+                height:55%px;
+                text-align:top;
+                padding: 30px;
+                background-color:lightpink;
+                box-shadow:25px 25px 75px rgba(0,0,0,0.25), 10px 10px 70px rgba(0,0,0,0.25);
+                inset:5px 5px 10px rgba(0,0,0,0.5);
+                inset:5px 5px 20px rgba(255,255,255,0.2);
+                inset: -5px -5px 15px rgba(0,0,0,0.75); 
+                border-radius:20px;
+            }
+            h2{
+                width:100%;
+                font-weight:bolder;
+                font-size: xx-large;
+                text-align:center;
+                color:indianred;
+                box-sizing:border-box;
+                border-radius:10px;
+            }
+           .val{
+                 height: 8%;
+                 width:75%;
+                 position:relative;
+                 font-size: medium;
+                 font-family:sans-serif;
+                 border-radius:35px;
+                
+            }       
+            .def{
+                height:7%;
+                width:20%;
+                color:beige;
+                font-weight:bold;
+                box-sizing: border-box;
+                font-size: medium;
+                 font-family: monospace;
+                 border-radius:10px;
+                 background-color:brown;
+
+            }
+            .text ul{
+                position:relative;
+                display:flex;
+                gap:20px;
+                background-color:navy;
+                color:whitesmoke;
+                font-weight:bold;
+                font-size:medium;
+                margin:15px 0;
+                padding:10px;
+                box-sizing:border-box;
+                border-radius:30px;
+                text-align:left;
+                font-size:medium;
+            }
+            .text ul i{
+                position:absolute;
+                right:10px;
+                cursor:pointer;
+            }
+         </style>
+            <div class="container">
+                <div class="tobox">
+                    <h2>To-do List</h2><br/>
+                    <input type="text" placeholder="write here.." class="val" id="inp">
+                    <button onclick="Add()" class="def">ADD</button>
+                </div>
+                    <div class="text">
+
+                    </div>
+                
+                </div>
+                <script>
+                    let inputs = document.getElementById("inp");
+                    let text= document.querySelector(".text");
+                    
+                    function Add(){
+                        if(inputs.value==""){
+                            alert("NO TASK ENTERED,PLEASE ENTER")
+
+                        }else{
+                             let nelnt=document.createElement("ul");
+                             nelnt.innerHTML=`${inputs.value} <i class=fa-solid fa-trash></i>`;
+                             text.appendChild(nelnt);
+                             inputs.value="";
+                             nelnt.querySelector("i").addEventListener("click" , remove);
+                             function remove(){}
+
+                        }
+                    }
+                    </script>
